@@ -3,6 +3,7 @@
 #include<iostream>
 #include<vector>
 #include<set>
+#include<sstream>
 class point
 {
 	friend class board;
@@ -31,7 +32,7 @@ public:
 		}
 		return false;
 	}
-	std::string toString();
+	std::string toString() const;
 private:
 	int x;
 	int y;
@@ -60,7 +61,7 @@ public:
 	int winner() const;
 	int gameEnd() const;
 	void print() const;
-	board oneStep(int color, point position) const;
+	board oneStep(int color, const point& position) const;
 	const std::set<point> getWhiteAvaliable();
 	const std::set<point> getBlackAvaliable();
 private:

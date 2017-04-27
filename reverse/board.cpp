@@ -33,14 +33,19 @@ void board::print() const
 	{
 		for (int j = 0; j < map[i].size(); j++)
 		{
-			std::cout << map[i][j] << " ";
+			std::cout << map[i][j] << "\t";
 		}
 		std::cout << std::endl;
 	}
 }
 
-board board::oneStep(int color, point position) const
+board board::oneStep(int color, const point& position) const
 {
+	board tmp=board(*this);
+	tmp[position]=color;
+	tmp.reversecolor(position);
+	tmp.initial();
+	return tmp;
 
 }
 
@@ -233,7 +238,7 @@ void board::reversecolor(point a)
 	int y = a.y;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x--][y] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -249,12 +254,13 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x--;
 	}
 	x = a.x + 1;
 	y = a.y;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x++][y] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -270,12 +276,13 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x++;
 	}
 	x = a.x;
 	y = a.y - 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x][y--] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -291,12 +298,13 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		y--;
 	}
 	x = a.x;
 	y = a.y + 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x][y++] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -312,12 +320,13 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		y++;
 	}
 	x = a.x - 1;
 	y = a.y - 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x--][y--] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -333,12 +342,14 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x--;
+		y--;
 	}
 	x = a.x - 1;
 	y = a.y + 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x--][y++] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -354,12 +365,14 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x--;
+		y++;
 	}
 	x = a.x + 1;
 	y = a.y + 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x++][y++] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -375,12 +388,14 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x++;
+		y++;
 	}
 	x = a.x + 1;
 	y = a.y - 1;
 	while (x >= 0 && y >= 0 && x <= 7 && y <= 7)
 	{
-		if (map[x++][y--] == !colorflag)
+		if (map[x][y] == !colorflag)
 		{
 			map[x][y] = colorflag;
 			if (colorflag == 1)
@@ -396,6 +411,8 @@ void board::reversecolor(point a)
 		}
 		else
 			break;
+		x++;
+		y--;
 	}
 }
 
@@ -407,4 +424,19 @@ const std::set<point> board::getWhiteAvaliable()
 const std::set<point> board::getBlackAvaliable()
 {
 	return blackAvaliable;
+}
+
+void board::initial()
+{
+	whiteAvaliable.clear();
+	blackAvaliable.clear();
+	detectAvaliable(1);
+	detectAvaliable(2);
+}
+
+std::string point::toString() const
+{
+	std::stringstream ssm;
+	ssm<<x<<','<<y;
+	return ssm.str();
 }

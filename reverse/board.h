@@ -61,7 +61,8 @@ public:
 	int gameEnd() const;
 	void print() const;
 	board oneStep(int color, point position) const;
-	
+	const std::set<point> getWhiteAvaliable();
+	const std::set<point> getBlackAvaliable();
 private:
 	std::vector<std::vector<int>> map;
 	int whiteCheeseNum;

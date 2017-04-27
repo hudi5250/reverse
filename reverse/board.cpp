@@ -398,3 +398,13 @@ void board::reversecolor(point a)
 			break;
 	}
 }
+
+const std::set<point> board::getWhiteAvaliable()
+{
+	return whiteAvaliable;
+}
+
+const std::set<point> board::getBlackAvaliable()
+{
+	return blackAvaliable;
+}

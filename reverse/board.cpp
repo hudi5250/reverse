@@ -416,14 +416,12 @@ void board::reversecolor(point a)
 	}
 }
 
-const std::set<point> board::getWhiteAvaliable()
+const std::set<point> board::getAvaliable(int color)
 {
-	return whiteAvaliable;
-}
-
-const std::set<point> board::getBlackAvaliable()
-{
-	return blackAvaliable;
+	if(color==0)
+		return whiteAvaliable;
+	else
+		return blackAvaliable;
 }
 
 void board::initial()

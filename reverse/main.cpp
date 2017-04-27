@@ -10,10 +10,10 @@ int main()
     board bd;
     bd=bd.oneStep(1,point(4,5));
     bd.print();
-    std::cout<<bd.getBlackAvaliable().size()<<std::endl;
+    std::cout<<bd.getAvaliable(1).size()<<std::endl;
     std::cout<<point(0,0).toString()<<std::endl;
     std::set<point>::iterator it;
-    std::set<point> tmp=bd.getBlackAvaliable();
+    std::set<point> tmp=bd.getAvaliable(1);
     it=tmp.begin();
     while(it!=tmp.end())
     {

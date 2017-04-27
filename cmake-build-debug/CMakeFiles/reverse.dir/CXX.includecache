@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/hudi/Documents/reverse/reverse/Socket.cpp
+Socket.h
+/Users/hudi/Documents/reverse/reverse/Socket.h
+
+/Users/hudi/Documents/reverse/reverse/Socket.h
+
+/Users/hudi/Documents/reverse/reverse/board.cpp
+board.h
+/Users/hudi/Documents/reverse/reverse/board.h
+
+/Users/hudi/Documents/reverse/reverse/board.h
+string
+-
+iostream
+-
+vector
+-
+set
+-
+
+/Users/hudi/Documents/reverse/reverse/main.cpp
+board.h
+/Users/hudi/Documents/reverse/reverse/board.h
+player.h
+/Users/hudi/Documents/reverse/reverse/player.h
+iostream
+-
+
+/Users/hudi/Documents/reverse/reverse/player.cpp
+player.h
+/Users/hudi/Documents/reverse/reverse/player.h
+
+/Users/hudi/Documents/reverse/reverse/player.h
+Socket.h
+/Users/hudi/Documents/reverse/reverse/Socket.h
+board.h
+/Users/hudi/Documents/reverse/reverse/board.h
+

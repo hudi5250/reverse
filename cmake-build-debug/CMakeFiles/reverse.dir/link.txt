@@ -1,0 +1,1 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++   -g -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/reverse.dir/reverse/board.cpp.o CMakeFiles/reverse.dir/reverse/player.cpp.o CMakeFiles/reverse.dir/reverse/Socket.cpp.o CMakeFiles/reverse.dir/reverse/main.cpp.o  -o reverse 
